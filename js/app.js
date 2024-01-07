@@ -3781,12 +3781,12 @@
                     slidesPerView: 2,
                     spaceBetween: 12
                 },
-                992: {
+                1070: {
                     slidesPerView: 3,
                     spaceBetween: 12,
                     slidesPerGroup: 2
                 },
-                1140: {
+                1200: {
                     slidesPerView: 3.5,
                     spaceBetween: 12,
                     slidesPerGroup: 3
@@ -3799,7 +3799,7 @@
             observer: true,
             observeParents: true,
             slidesPerView: 1,
-            spaceBetween: 12,
+            spaceBetween: 36,
             slidesPerGroup: 2,
             speed: 800,
             pagination: {
@@ -3813,12 +3813,12 @@
             breakpoints: {
                 320: {
                     slidesPerView: 1,
-                    spaceBetween: 10,
+                    spaceBetween: 12,
                     slidesPerGroup: 1
                 },
                 992: {
                     slidesPerView: 2,
-                    spaceBetween: 12,
+                    spaceBetween: 36,
                     slidesPerGroup: 2
                 }
             },
@@ -4054,7 +4054,7 @@
     const totalSteps = document.querySelector(".header-form__finish");
     const blockHeader = document.querySelectorAll(".form__header");
     for (let i = 1; i < fieldsets.length; i++) fieldsets[i].style.display = "none";
-    nextButton.addEventListener("click", (() => {
+    if (nextButton) nextButton.addEventListener("click", (e => {
         fieldsets[currentStep].style.display = "none";
         currentStep++;
         if (currentStep === fieldsets.length - 1) {
@@ -4066,7 +4066,7 @@
         fieldsets[currentStep].style.display = "block";
         stepNumber.textContent = String(currentStep + 1).padStart(2, "0");
     }));
-    totalSteps.textContent = String(fieldsets.length).padStart(2, "0");
+    if (totalSteps) totalSteps.textContent = String(fieldsets.length).padStart(2, "0");
     window["FLS"] = false;
     menuInit();
     spollers();
